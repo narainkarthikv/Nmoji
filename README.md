@@ -68,9 +68,14 @@ We welcome contributions! To contribute to Nmoji, follow these steps:
     git push origin your-branch-name
     ```
 
+9. Don't forget to add your name to `Contributors.md` after contributing
+  ```sh
+  -[Username](https://github.com/your-username) **Your message** 
+  ```
+
 ### Creating a Pull Request
 
-9. Create a pull request from your forked repository to the main repository. Go to the "Pull Requests" tab on the main repository, and click "New Pull Request". Follow the instructions to create your pull request.
+10. Create a pull request from your forked repository to the main repository. Go to the "Pull Requests" tab on the main repository, and click "New Pull Request". Follow the instructions to create your pull request.
    ![Creating a Pull Request](https://github-images.s3.amazonaws.com/help/pull_requests/pull-request-start-review-button.png)
 
 ## Project Structure
