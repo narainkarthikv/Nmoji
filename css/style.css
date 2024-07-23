@@ -8,12 +8,19 @@
 
 body {
     font-family: 'Outfit', sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* Light mode background */
+    color: #000000; /* Light mode text color */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;;
+    min-height: 100vh;
     padding: 10px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+body.dark-mode {
+    background-color: #000000; /* Dark mode background */
+    color: #ffffff; /* Dark mode text color */
 }
 
 .container {
@@ -27,13 +34,19 @@ body {
     width: 100%;
     text-align: left;
     padding: 10px 25px;
-    background-color: lightseagreen;
+    background-color: lightseagreen; /* Light mode header background */
     color: #fff;
     position: fixed;
     top: 0;
+    display: flex;
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
-.Nmoji-body{
+.header.dark-mode {
+    background-color: #444444; /* Dark mode header background */
+}
+
+.Nmoji-body {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -41,7 +54,7 @@ body {
     align-items: center;
 }
 
-.Nmoji-filter-container{
+.Nmoji-filter-container {
     width: 100%;
 }
 
@@ -51,14 +64,13 @@ body {
     font-size: 1.2em;
     border: 3px outset lightslategrey;
     border-radius: 5px;
-    transition: border-color 0.4s ease-in;
+    transition: border-color 0.4s ease-in, background-color 0.3s; /* Smooth transition */
     text-align: center;
 }
 
 .filter-input:focus {
     border-color: lightseagreen;
     border: 3px inset lightseagreen;
-    transition: border-color 0.4s ease-out;
 }
 
 .filter-input::placeholder {
@@ -71,9 +83,14 @@ body {
     justify-content: center;
     max-height: 350px;
     overflow-y: auto;
-    border: 5px outset lightseagreen;
+    border: 5px outset lightseagreen; /* Light mode border */
     padding: 10px;
     border-radius: 10px;
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+#emojiContainer.dark-mode {
+    border-color: #555555; /* Dark mode border */
 }
 
 .emoji {
@@ -99,10 +116,15 @@ body {
     width: 100%;
     text-align: center;
     padding: 10px;
-    background-color: lightseagreen;
+    background-color: lightseagreen; /* Light mode footer background */
     color: white;
     position: fixed;
     bottom: 0;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.footer.dark-mode {
+    background-color: #444444; /* Dark mode footer background */
 }
 
 .footer .link {
@@ -113,4 +135,25 @@ body {
 
 .footer .link:hover {
     text-decoration: underline;
+}
+
+.suggestion-container {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: calc(50% + 20px); /* Adjust to match input width */
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: lightseagreen;
+    color: #fff;
 }
