@@ -1,6 +1,6 @@
 # Nmoji
 
-Nmoji is a straightforward web application designed for quick emoji selection and filtering. This documentation provides an overview of the project, instructions for installation, and guidelines for contributing. 🔎😉
+Nmoji is a straightforward web application designed for quick emoji selection and filtering. This documentation provides an overview of the project, installation instructions, and contributing guidelines. 🔎😉
 
 ## Table of Contents
 - [Usage](#usage)
@@ -51,32 +51,32 @@ We welcome contributions! To contribute to Nmoji, follow these steps:
 
 5. Make your changes to the codebase. You can edit the files using your preferred code editor.
 
+6. Don't forget to add your name to `Contributors.md` after contributing
+    ```sh
+    -[Username](https://github.com/your-username) **Your message** 
+    ```
+
 ### Committing Changes
 
-6. Add the changes to the staging area:
+7. Add the changes to the staging area:
     ```sh
     git add .
     ```
-7. Commit the changes with a descriptive message:
+8. Commit the changes with a descriptive message:
     ```sh
     git commit -m "Description of your changes"
     ```
 
 ### Pushing Changes
 
-8. Push the changes to your forked repository:
+9. Push the changes to your forked repository:
     ```sh
     git push origin your-branch-name
     ```
 
-9. Don't forget to add your name to `Contributors.md` after contributing
-  ```sh
-  -[Username](https://github.com/your-username) **Your message** 
-  ```
-
 ### Creating a Pull Request
 
-10. Create a pull request from your forked repository to the main repository. Go to the "Pull Requests" tab on the main repository, and click "New Pull Request". Follow the instructions to create your pull request.
+9. Create a pull request from your forked repository to the main repository. Go to the "Pull Requests" tab on the main repository, and click "New Pull Request". Follow the instructions to create your pull request.
    ![Creating a Pull Request](https://github-images.s3.amazonaws.com/help/pull_requests/pull-request-start-review-button.png)
 
 ## Project Structure
@@ -91,7 +91,7 @@ We welcome contributions! To contribute to Nmoji, follow these steps:
 
 We appreciate the contributions of the following individuals: [Contributors](https://github.com/narainkarthikv/Nmoji/blob/main/Contributors.md)
 
-This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make Sticky-Memo the best it can be! ❤️🤝
+This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make Nmoji the best it can be! ❤️🤝
 
 ## License
 
