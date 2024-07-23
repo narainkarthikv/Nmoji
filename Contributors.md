@@ -3,4 +3,4 @@
 - [Narain Karthik](https://github.com/narainkarthikv) **Owner of Nmoji**
 
 ## Open Source Contributors
-- [Your Name](https://github.com/your-username) **Add a Meaningful Message**
+- [Yash Patil](https://github.com/patilyashh) **Improved search algorithem**
