@@ -13,6 +13,7 @@ Nmoji is a straightforward web application designed for quick emoji selection an
   - [Pushing Changes](#pushing-changes)
   - [Creating a Pull Request](#creating-a-pull-request)
 - [Project Structure](#project-structure)
+- [Contributors](#contributors)
 - [License](#license)
 
 ## Usage
@@ -86,7 +87,11 @@ We welcome contributions! To contribute to Nmoji, follow these steps:
 - `data`: Contains any data files used by the application.
 - `index.html`: The main HTML file of the application.
 
-This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make Nmoji the best it can be! ❤️🤝
+## Contributors
+
+We appreciate the contributions of the following individuals: [Contributors](https://github.com/narainkarthikv/Nmoji/blob/main/Contributors.md)
+
+This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make Sticky-Memo the best it can be! ❤️🤝
 
 ## License
 
