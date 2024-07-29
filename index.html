@@ -17,27 +17,33 @@
 
     <div class="container">
         <main>
-
-            <div class="Nmoji-filter-container">
-                <input type="text" id="filterInput" class="filter-input" placeholder="🔍 Filter emojis by name!...">
-            </div>
-
             <div class="Nmoji-body">
-                <div id="emojiContainer">
-                    
+                <div class="Nmoji-filter-container">
+                    <input type="text" id="filterInput" class="filter-input" placeholder="🔍 Filter emojis by name!...">
                 </div>
+
+                <div id="emojiContainer" class="emoji-container">
+
+                    <!-- Emoji elements will be inserted here by JavaScript -->
+                </div>
+
+                <div class="emoji-description">
+                    <h2>Emote Description</h2>
+                    <p id="emojiDescription">Select an emoji to see its description here.</p>
+                </div>
+                
             </div>
-
-        </main>
-
-        
+        </main>     
     </div>
 
     <footer class="footer">
-        <p>&#169; 2024 Open-Source Project - <a class="link" href="https://www.github.com/narainkarthikv/Nmoji" target="_blank">GitHub Repository</a></p>
-        <p>Developed by <a class="link" href="https://www.github.com/narainkarthikv" target="_blank">Wisdom Fox Community</a></p>
+        <p>&#169; 2024 Open-Source Project - <a class="link" href="https://www.github.com/narainkarthikv/Nmoji"
+                target="_blank">GitHub Repository</a></p>
+        <p>Developed by <a class="link" href="https://www.github.com/narainkarthikv" target="_blank">Wisdom Fox
+                Community</a></p>
     </footer>
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>
