@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const filterInput = document.getElementById('filterInput');
+    const emotionFilter = document.getElementById('emotionFilter');
     const emojiContainer = document.getElementById('emojiContainer');
     const emojiDescription = document.getElementById('emojiDescription');
+    
+    let emojiData = []; // To store fetched emoji data
 
     /**
      * Debounce function to limit the rate at which a function can be invoked.
@@ -32,9 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(NmojiList => {
-            displayEmojis(NmojiList);
+            emojiData = NmojiList; // Store the data
+            displayEmojis(emojiData);
             // Attach debounced filter function to the input event
-            filterInput.addEventListener('input', debounce(() => filterEmojis(NmojiList), 300));
+            filterInput.addEventListener('input', debounce(applyFilters, 300));
+            emotionFilter.addEventListener('change', applyFilters);
         })
         .catch(error => {
             console.error('Error fetching the JSON data:', error);
@@ -60,16 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Filters emojis based on the input value and updates the displayed emojis.
-     * @param {Array} NmojiList - Array of all emoji objects.
+     * Applies filters based on the input value and dropdown selection, and updates the displayed emojis.
      */
-    function filterEmojis(NmojiList) {
+    function applyFilters() {
         const filterValue = filterInput.value.toLowerCase();
-        const filteredEmojis = NmojiList.filter(emoji =>
-            emoji.emoji.toLowerCase().includes(filterValue) ||
+        const selectedEmotion = emotionFilter.value.toLowerCase();
+        const filteredEmojis = emojiData.filter(emoji =>
+            (emoji.emoji.toLowerCase().includes(filterValue) ||
             emoji.description.toLowerCase().includes(filterValue) ||
             emoji.category.toLowerCase().includes(filterValue) ||
-            (emoji.tags && emoji.tags.some(tag => tag.toLowerCase().includes(filterValue)))
+            (emoji.tags && emoji.tags.some(tag => tag.toLowerCase().includes(filterValue))))
+            && (selectedEmotion === '' || (emoji.tags && emoji.tags.includes(selectedEmotion)))
         );
         displayEmojis(filteredEmojis);
     }
@@ -92,22 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to copy text: ', err);
             });
         } else { // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select(); // Select the text
             try {
                 const successful = document.execCommand('copy');
-                const msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Fallback: Copying text command was ' + msg);
-                setTimeout(() => {
-                    element.classList.remove('clicked'); // Remove the class after the animation
-                }, 750); // Match the duration of the CSS transition
+                if (successful) {
+                    console.log('Fallback: Text copied to clipboard');
+                } else {
+                    console.error('Fallback: Failed to copy text');
+                }
             } catch (err) {
                 console.error('Fallback: Oops, unable to copy', err);
             }
-            document.body.removeChild(textArea);
+            document.body.removeChild(tempInput);
+            
+            setTimeout(() => {
+                element.classList.remove('clicked'); // Remove the class after the animation
+            }, 750); // Match the duration of the CSS transition
         }
     }
 
