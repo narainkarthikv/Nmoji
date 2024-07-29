@@ -1,7 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const filterInput = document.getElementById('filterInput');
+    const emotionFilter = document.getElementById('emotionFilter');
     const emojiContainer = document.getElementById('emojiContainer');
     const emojiDescription = document.getElementById('emojiDescription');
+
+    if (!filterInput || !emotionFilter || !emojiContainer || !emojiDescription) {
+        console.error('One or more HTML elements are missing');
+        return;
+    }
+
+    let emojis = []; // This will hold your emoji data
 
     /**
      * Debounce function to limit the rate at which a function can be invoked.
@@ -32,9 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(NmojiList => {
-            displayEmojis(NmojiList);
-            // Attach debounced filter function to the input event
-            filterInput.addEventListener('input', debounce(() => filterEmojis(NmojiList), 300));
+            emojis = NmojiList; // Store the fetched emojis
+            console.log('Fetched emojis:', emojis);
+            displayEmojis(emojis); // Initial display of emojis
+            filterInput.addEventListener('input', debounce(filterEmojis, 300));
+            emotionFilter.addEventListener('change', filterEmojis);
         })
         .catch(error => {
             console.error('Error fetching the JSON data:', error);
@@ -42,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Creates and displays emoji elements in the container.
-     * @param {Array} emojis - Array of emoji objects to display.
+     * @param {Array} filteredEmojis - Array of emoji objects to display.
      */
-    function displayEmojis(emojis) {
+    function displayEmojis(filteredEmojis) {
         emojiContainer.innerHTML = ''; // Clear existing emojis
-        emojis.forEach(emoji => {
+        filteredEmojis.forEach(emoji => {
             const emojiElement = document.createElement('div');
             emojiElement.classList.add('emoji');
             emojiElement.textContent = emoji.emoji;
@@ -60,17 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Filters emojis based on the input value and updates the displayed emojis.
-     * @param {Array} NmojiList - Array of all emoji objects.
+     * Filters emojis based on the input value and emotion selection.
      */
-    function filterEmojis(NmojiList) {
-        const filterValue = filterInput.value.toLowerCase();
-        const filteredEmojis = NmojiList.filter(emoji =>
-            emoji.emoji.toLowerCase().includes(filterValue) ||
-            emoji.description.toLowerCase().includes(filterValue) ||
-            emoji.category.toLowerCase().includes(filterValue) ||
-            (emoji.tags && emoji.tags.some(tag => tag.toLowerCase().includes(filterValue)))
-        );
+    function filterEmojis() {
+        const filterText = filterInput.value.toLowerCase();
+        const selectedEmotion = emotionFilter.value.toLowerCase();
+
+        console.log('Filter Text:', filterText);
+        console.log('Selected Emotion:', selectedEmotion);
+
+        const filteredEmojis = emojis.filter(emoji => {
+            const matchesText = emoji.description.toLowerCase().includes(filterText);
+            const matchesEmotion = selectedEmotion ? (emoji.tags && emoji.tags.includes(selectedEmotion)) : true;
+            console.log(`Emoji: ${emoji.description}, Matches Text: ${matchesText}, Matches Emotion: ${matchesEmotion}`);
+            return matchesText && matchesEmotion;
+        });
+
+        console.log('Filtered Emojis:', filteredEmojis);
         displayEmojis(filteredEmojis);
     }
 

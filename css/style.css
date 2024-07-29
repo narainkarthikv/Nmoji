@@ -213,3 +213,12 @@ body {
 .footer .link:hover {
     text-decoration: underline;
 }
+
+.filter-select {
+    margin-left: 10px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: greenyellow;
+    font-family: arial black;
+}
