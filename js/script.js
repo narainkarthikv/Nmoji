@@ -3,13 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const emotionFilter = document.getElementById('emotionFilter');
     const emojiContainer = document.getElementById('emojiContainer');
     const emojiDescription = document.getElementById('emojiDescription');
-
-    if (!filterInput || !emotionFilter || !emojiContainer || !emojiDescription) {
-        console.error('One or more HTML elements are missing');
-        return;
-    }
-
-    let emojis = []; // This will hold your emoji data
+    
+    let emojiData = []; // To store fetched emoji data
 
     /**
      * Debounce function to limit the rate at which a function can be invoked.
@@ -40,11 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(NmojiList => {
-            emojis = NmojiList; // Store the fetched emojis
-            console.log('Fetched emojis:', emojis);
-            displayEmojis(emojis); // Initial display of emojis
-            filterInput.addEventListener('input', debounce(filterEmojis, 300));
-            emotionFilter.addEventListener('change', filterEmojis);
+            emojiData = NmojiList; // Store the data
+            displayEmojis(emojiData);
+            // Attach debounced filter function to the input event
+            filterInput.addEventListener('input', debounce(applyFilters, 300));
+            emotionFilter.addEventListener('change', applyFilters);
         })
         .catch(error => {
             console.error('Error fetching the JSON data:', error);
@@ -52,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Creates and displays emoji elements in the container.
-     * @param {Array} filteredEmojis - Array of emoji objects to display.
+     * @param {Array} emojis - Array of emoji objects to display.
      */
-    function displayEmojis(filteredEmojis) {
+    function displayEmojis(emojis) {
         emojiContainer.innerHTML = ''; // Clear existing emojis
-        filteredEmojis.forEach(emoji => {
+        emojis.forEach(emoji => {
             const emojiElement = document.createElement('div');
             emojiElement.classList.add('emoji');
             emojiElement.textContent = emoji.emoji;
@@ -70,23 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Filters emojis based on the input value and emotion selection.
+     * Applies filters based on the input value and dropdown selection, and updates the displayed emojis.
      */
-    function filterEmojis() {
-        const filterText = filterInput.value.toLowerCase();
+    function applyFilters() {
+        const filterValue = filterInput.value.toLowerCase();
         const selectedEmotion = emotionFilter.value.toLowerCase();
-
-        console.log('Filter Text:', filterText);
-        console.log('Selected Emotion:', selectedEmotion);
-
-        const filteredEmojis = emojis.filter(emoji => {
-            const matchesText = emoji.description.toLowerCase().includes(filterText);
-            const matchesEmotion = selectedEmotion ? (emoji.tags && emoji.tags.includes(selectedEmotion)) : true;
-            console.log(`Emoji: ${emoji.description}, Matches Text: ${matchesText}, Matches Emotion: ${matchesEmotion}`);
-            return matchesText && matchesEmotion;
-        });
-
-        console.log('Filtered Emojis:', filteredEmojis);
+        const filteredEmojis = emojiData.filter(emoji =>
+            (emoji.emoji.toLowerCase().includes(filterValue) ||
+            emoji.description.toLowerCase().includes(filterValue) ||
+            emoji.category.toLowerCase().includes(filterValue) ||
+            (emoji.tags && emoji.tags.some(tag => tag.toLowerCase().includes(filterValue))))
+            && (selectedEmotion === '' || (emoji.tags && emoji.tags.includes(selectedEmotion)))
+        );
         displayEmojis(filteredEmojis);
     }
 
@@ -108,22 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to copy text: ', err);
             });
         } else { // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select(); // Select the text
             try {
                 const successful = document.execCommand('copy');
-                const msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Fallback: Copying text command was ' + msg);
-                setTimeout(() => {
-                    element.classList.remove('clicked'); // Remove the class after the animation
-                }, 750); // Match the duration of the CSS transition
+                if (successful) {
+                    console.log('Fallback: Text copied to clipboard');
+                } else {
+                    console.error('Fallback: Failed to copy text');
+                }
             } catch (err) {
                 console.error('Fallback: Oops, unable to copy', err);
             }
-            document.body.removeChild(textArea);
+            document.body.removeChild(tempInput);
+            
+            setTimeout(() => {
+                element.classList.remove('clicked'); // Remove the class after the animation
+            }, 750); // Match the duration of the CSS transition
         }
     }
 
