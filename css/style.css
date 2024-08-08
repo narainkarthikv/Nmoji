@@ -24,8 +24,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px; /* Add margin to avoid content overlap with fixed header */
-    margin-bottom: 80px; /* Add margin to avoid content overlap with fixed footer */
+    margin-top: 80px; /* To avoid content overlap with fixed header */
+    margin-bottom: 80px; /* To avoid content overlap with fixed footer */
 }
 
 .header {
@@ -58,26 +58,68 @@ body {
 
 .Nmoji-filter-container {
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
+    gap: 0;
+}
+
+.search-bar {
+    position: relative;
+    width: 70%;
+    display: flex;
+    align-items: center;
 }
 
 .filter-input {
-    width: 50%;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Adjust padding for icon */
     font-size: 1.2em;
     border: 3px outset lightslategrey;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     transition: border-color 0.3s ease-in-out;
     text-align: center;
+    margin: 0 auto;
 }
 
 .filter-input:focus {
     border-color: lightseagreen;
-    border: 3px inset lightseagreen;
+    border: 3px outset lightseagreen;
 }
 
 .filter-input::placeholder {
+    text-align: center;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    font-size: 1.2em;
+    color: gray;
+    padding: 5px;
+}
+
+.filter-select {
+    width: 100%;
+    max-width: 150px;
+    border: 3px outset lightslategrey;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+    background-color: #fff;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.filter-select:focus {
+    border: 3px outset lightseagreen;
+}
+
+.filter-bar{
+    width: 100%;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -93,13 +135,12 @@ body {
     border-radius: 10px;
     background-color: #fff;
     width: 70%;
-    min-width: 70%;
     margin: 0 auto;
 }
 
-/* Custom scrollbar styles */
+/* Custom scrollbar styles for emojiContainer */
 #emojiContainer::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 
 #emojiContainer::-webkit-scrollbar-track {
@@ -109,13 +150,32 @@ body {
 #emojiContainer::-webkit-scrollbar-thumb {
     background-color: lightseagreen;
     border-radius: 10px;
-    height: 10%;
     transition: background-color 0.3s ease;
 }
 
 #emojiContainer::-webkit-scrollbar-thumb:hover {
     background-color: #4a7f6d; /* Darker shade of lightseagreen for hover effect */
 }
+
+/* Custom scrollbar styles for filter-select */
+.filter-select::-webkit-scrollbar {
+    width: 10px;
+}
+
+.filter-select::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
+
+.filter-select::-webkit-scrollbar-thumb {
+    background-color: lightseagreen;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-select::-webkit-scrollbar-thumb:hover {
+    background-color: #4a7f6d; /* Darker shade of lightseagreen for hover effect */
+}
+
 
 /* Emoji styling */
 .emoji {
@@ -155,7 +215,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Emoji styling */
 .selected-emoji {
     text-align: center;
     width: 50px;
@@ -212,13 +271,4 @@ body {
 
 .footer .link:hover {
     text-decoration: underline;
-}
-
-.filter-select {
-    margin-left: 10px;
-    padding: 5px;
-    border: 2px solid black;
-    border-radius: 4px;
-    background-color: greenyellow;
-    font-family: arial black;
 }

@@ -19,15 +19,24 @@
         <main>
             <div class="Nmoji-body">
                 <div class="Nmoji-filter-container">
-                    <input type="text" id="filterInput" class="filter-input" placeholder="🔍 Filter emojis by name!...">
-                    <select id="emotionFilter" class="filter-select">
-                        <option value="">Filter by emotion</option>
-                        <option value="happy">Happy</option>
-                        <option value="sad">Sad</option>
-                        <option value="angry">Angry</option>
-                        <option value="love">Love</option>
-                        <!-- Add more emotions as needed -->
-                    </select>
+                    <div class="search-bar">
+                        <input type="text" id="filterInput" class="filter-input" placeholder="Filter emojis by name...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <div class="filter-bar">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">Categories</option>
+
+                            <!-- Add more categories as needed -->
+                        </select>
+                        <select id="tagFilter" class="filter-select">
+                            <option value="">Tags</option>
+                            <!-- Populate with tags dynamically -->
+                        </select>
+                        <select id="aliasFilter" class="filter-select">
+                            <option value="">Filter by alias</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div id="emojiContainer" class="emoji-container">
