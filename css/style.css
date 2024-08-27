@@ -15,6 +15,14 @@ body {
     min-height: 100vh;
     padding: 10px;
     flex-direction: column;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .container {
@@ -24,8 +32,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px; /* To avoid content overlap with fixed header */
-    margin-bottom: 80px; /* To avoid content overlap with fixed footer */
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 .header {
@@ -41,6 +49,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark mode header */
+body.dark-mode .header {
+    background-color: #1f4043;
 }
 
 .header h1 {
@@ -74,13 +88,22 @@ body {
 
 .filter-input {
     width: 100%;
-    padding: 10px 40px 10px 10px; /* Adjust padding for icon */
+    padding: 10px 40px 10px 10px;
     font-size: 1.2em;
     border: 3px outset lightslategrey;
     border-radius: 5px 0 0 5px;
     transition: border-color 0.3s ease-in-out;
     text-align: center;
     margin: 0 auto;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Dark mode filter input */
+body.dark-mode .filter-input {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #4a7f6d;
 }
 
 .filter-input:focus {
@@ -92,12 +115,22 @@ body {
     text-align: center;
 }
 
+/* Dark mode placeholder */
+body.dark-mode .filter-input::placeholder {
+    color: #bbb;
+}
+
 .search-icon {
     position: absolute;
     right: 10px;
     font-size: 1.2em;
     color: gray;
     padding: 5px;
+}
+
+/* Dark mode search icon */
+body.dark-mode .search-icon {
+    color: #bbb;
 }
 
 .filter-select {
@@ -113,11 +146,18 @@ body {
     text-align: center;
 }
 
+/* Dark mode filter select */
+body.dark-mode .filter-select {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #4a7f6d;
+}
+
 .filter-select:focus {
     border: 3px outset lightseagreen;
 }
 
-.filter-bar{
+.filter-bar {
     width: 100%;
     font-size: 1.2em;
     text-align: center;
@@ -136,15 +176,27 @@ body {
     background-color: #fff;
     width: 70%;
     margin: 0 auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Custom scrollbar styles for emojiContainer */
+/* Dark mode emoji container */
+body.dark-mode #emojiContainer {
+    background-color: #333;
+    border-color: #4a7f6d;
+}
+
+/* Custom scrollbar styles */
 #emojiContainer::-webkit-scrollbar {
     width: 10px;
 }
 
 #emojiContainer::-webkit-scrollbar-track {
     background-color: #f5f5f5;
+}
+
+/* Dark mode scrollbar track */
+body.dark-mode #emojiContainer::-webkit-scrollbar-track {
+    background-color: #555;
 }
 
 #emojiContainer::-webkit-scrollbar-thumb {
@@ -154,7 +206,7 @@ body {
 }
 
 #emojiContainer::-webkit-scrollbar-thumb:hover {
-    background-color: #4a7f6d; /* Darker shade of lightseagreen for hover effect */
+    background-color: #4a7f6d;
 }
 
 /* Custom scrollbar styles for filter-select */
@@ -166,6 +218,11 @@ body {
     background-color: #f5f5f5;
 }
 
+/* Dark mode scrollbar track for select */
+body.dark-mode .filter-select::-webkit-scrollbar-track {
+    background-color: #555;
+}
+
 .filter-select::-webkit-scrollbar-thumb {
     background-color: lightseagreen;
     border-radius: 10px;
@@ -173,9 +230,8 @@ body {
 }
 
 .filter-select::-webkit-scrollbar-thumb:hover {
-    background-color: #4a7f6d; /* Darker shade of lightseagreen for hover effect */
+    background-color: #4a7f6d;
 }
-
 
 /* Emoji styling */
 .emoji {
@@ -192,6 +248,13 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Dark mode emoji */
+body.dark-mode .emoji {
+    background-color: #333;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .emoji.clicked {
     background-color: lightcoral !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -206,7 +269,7 @@ body {
 /* Container for the emoji description */
 .emoji-description {
     width: 25%;
-    padding: 20px; /* Increased padding for better spacing */
+    padding: 20px;
     border: 5px outset lightseagreen;
     border-radius: 10px;
     background-color: #fff;
@@ -215,6 +278,13 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+/* Dark mode emoji description */
+body.dark-mode .emoji-description {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Selected emoji display */
 .selected-emoji {
     text-align: center;
     width: 50px;
@@ -228,6 +298,13 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Dark mode selected emoji */
+body.dark-mode .selected-emoji {
+    background-color: #333;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* Title styling */
 .emoji-title {
     text-transform: capitalize;
@@ -235,40 +312,158 @@ body {
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
 
-/* Category styling */
-.emoji-category {
-    font-size: 16px;
+/* Dark mode emoji title */
+body.dark-mode .emoji-title {
+    color: #e0e0e0;
+}
+
+/* Paragraph text */
+.emoji-paragraph {
+    font-size: 15px;
     color: #333;
-    margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
-/* Tags styling */
-.emoji-tags {
-    font-size: 16px;
-    color: lightseagreen;
-    margin-top: 10px;
-    font-weight: bold;
+/* Dark mode emoji paragraph */
+body.dark-mode .emoji-paragraph {
+    color: #e0e0e0;
 }
 
 .footer {
     width: 100%;
     text-align: center;
-    padding: 10px;
+    padding: 15px 25px;
     background-color: lightseagreen;
-    color: white;
+    color: #fff;
     position: fixed;
     bottom: 0;
     left: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark mode footer */
+body.dark-mode .footer {
+    background-color: #1f4043;
 }
 
 .footer .link {
     color: darkred;
     text-decoration: none;
-    font-weight: bold;
+}
+
+/* Dark mode footer link */
+body.dark-mode .footer .link {
+    color: lightcoral;
 }
 
 .footer .link:hover {
     text-decoration: underline;
+}
+
+/* Dark mode toggle switch styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.sun-icon {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    font-size: 20px;
+    transition: opacity 0.4s ease;
+}
+
+.moon-icon {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 20px;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+input:checked + .slider {
+    background-color: lightseagreen;
+}
+
+input:checked + .slider .moon-icon {
+    opacity: 1;
+}
+
+input:checked + .slider .sun-icon {
+    opacity: 0;
+}
+
+#theme-toggle {
+    background: linear-gradient(135deg, #9be4ab, #515594);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+#theme-toggle:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+#theme-icon {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle.dark-mode #theme-icon {
+    transform: rotate(180deg);
 }
