@@ -9,6 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let emojiData = []; // To store fetched emoji data
 
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.textContent = '🌜';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.textContent = '🌞';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Check local storage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.textContent = '🌜'; // Mostrar la luna si está en modo oscuro
+    } else {
+        themeIcon.textContent = '🌞'; // Mostrar el sol si está en modo claro
+    }
+
+
     /**
      * Debounce function to limit the rate at which a function can be invoked.
      * @param {Function} func - The function to debounce.
@@ -179,4 +204,5 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="emoji-tags">Tags: #${emoji.tags ? emoji.tags.join(', #') : 'None'}</div>
             `;
     }
+    
 });
