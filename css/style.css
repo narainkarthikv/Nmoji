@@ -32,13 +32,8 @@ body.dark-mode {
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
-    margin-top: 80px; /* To avoid content overlap with fixed header */
-    margin-bottom: 80px; /* To avoid content overlap with fixed footer */
-=======
     margin-top: 80px;
     margin-bottom: 80px;
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
 }
 
 .header {
@@ -93,19 +88,13 @@ body.dark-mode .header {
 
 .filter-input {
     width: 100%;
-<<<<<<< HEAD
-    padding: 10px 40px 10px 10px; /* Adjust padding for icon */
-=======
     padding: 10px 40px 10px 10px;
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
     font-size: 1.2em;
     border: 3px outset lightslategrey;
     border-radius: 5px 0 0 5px;
     transition: border-color 0.3s ease-in-out;
     text-align: center;
     margin: 0 auto;
-<<<<<<< HEAD
-=======
     background-color: #fff;
     color: #333;
 }
@@ -115,7 +104,6 @@ body.dark-mode .filter-input {
     background-color: #333;
     color: #e0e0e0;
     border-color: #4a7f6d;
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
 }
 
 .filter-input:focus {
@@ -127,14 +115,11 @@ body.dark-mode .filter-input {
     text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 /* Dark mode placeholder */
 body.dark-mode .filter-input::placeholder {
     color: #bbb;
 }
 
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
 .search-icon {
     position: absolute;
     right: 10px;
@@ -143,14 +128,11 @@ body.dark-mode .filter-input::placeholder {
     padding: 5px;
 }
 
-<<<<<<< HEAD
-=======
 /* Dark mode search icon */
 body.dark-mode .search-icon {
     color: #bbb;
 }
 
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
 .filter-select {
     width: 100%;
     max-width: 150px;
@@ -164,8 +146,6 @@ body.dark-mode .search-icon {
     text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 /* Dark mode filter select */
 body.dark-mode .filter-select {
     background-color: #333;
@@ -173,16 +153,11 @@ body.dark-mode .filter-select {
     border-color: #4a7f6d;
 }
 
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
 .filter-select:focus {
     border: 3px outset lightseagreen;
 }
 
-<<<<<<< HEAD
-.filter-bar{
-=======
 .filter-bar {
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
     width: 100%;
     font-size: 1.2em;
     text-align: center;
@@ -323,8 +298,6 @@ body.dark-mode .emoji {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-<<<<<<< HEAD
-=======
 /* Dark mode emoji description */
 body.dark-mode .emoji-description {
     background-color: #333;
@@ -332,7 +305,6 @@ body.dark-mode .emoji-description {
 }
 
 /* Selected emoji display */
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
 .selected-emoji {
     text-align: center;
     width: 50px;
@@ -410,8 +382,6 @@ body.dark-mode .footer .link {
 .footer .link:hover {
     text-decoration: underline;
 }
-<<<<<<< HEAD
-=======
 
 /* Dark mode toggle switch styles */
 .switch {
@@ -517,4 +487,3 @@ input:checked + .slider .sun-icon {
 #theme-toggle.dark-mode #theme-icon {
     transform: rotate(180deg);
 }
->>>>>>> d864734241f368229b29862556f89bd0c5a65c5a
