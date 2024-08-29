@@ -62,9 +62,9 @@ body.dark-mode .header {
 }
 
 .Nmoji-body {
-    width: 100%;
+    width: 130vh; /* Turn this into vh so the container wont change when there are no emojis shown*/
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Changed this into space-between from center so that it will line up with the container above*/
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
@@ -73,10 +73,9 @@ body.dark-mode .header {
 .Nmoji-filter-container {
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    gap: 0;
+    /* removed gap: 0 and justify-content: center since they don't do anything*/
 }
 
 .search-bar {
@@ -93,7 +92,7 @@ body.dark-mode .header {
     border: 3px outset lightslategrey;
     border-radius: 5px 0 0 5px;
     transition: border-color 0.3s ease-in-out;
-    text-align: center;
+    /* text-align: center; Search bar input usually starts at the beginning of the bar*/
     margin: 0 auto;
     background-color: #fff;
     color: #333;
@@ -134,8 +133,8 @@ body.dark-mode .search-icon {
 }
 
 .filter-select {
-    width: 100%;
-    max-width: 150px;
+    width: 50%;
+    max-width: 170px;
     border: 3px outset lightslategrey;
     border-radius: 5px;
     transition: border-color 0.3s ease-in-out;
@@ -144,6 +143,7 @@ body.dark-mode .search-icon {
     font-size: 1em;
     cursor: pointer;
     text-align: center;
+    padding: 10px;
 }
 
 /* Dark mode filter select */
@@ -160,7 +160,7 @@ body.dark-mode .filter-select {
 .filter-bar {
     width: 100%;
     font-size: 1.2em;
-    text-align: center;
+    text-align: right;
 }
 
 #emojiContainer {
@@ -175,7 +175,7 @@ body.dark-mode .filter-select {
     border-radius: 10px;
     background-color: #fff;
     width: 70%;
-    margin: 0 auto;
+    /* margin: 0 auto; flex box already centers it for us we don't need to center it again with the margin*/
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -288,13 +288,13 @@ body.dark-mode .emoji {
 
 /* Container for the emoji description */
 .emoji-description {
-    width: 25%;
+    width: 26%;
     padding: 20px;
     border: 5px outset lightseagreen;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    /* margin: 0 auto;  This will center the box in the bottom container not aligning it with the top*/
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -306,11 +306,10 @@ body.dark-mode .emoji-description {
 
 /* Selected emoji display */
 .selected-emoji {
-    text-align: center;
     width: 50px;
     height: 50px;
-    margin: 10px;
     padding: 5px;
+    margin: 10px 0;
     font-size: 1.7em;
     border-radius: 20px;
     background-color: #fff;
