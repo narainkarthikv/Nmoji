@@ -1,0 +1,96 @@
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Dark mode header */
+body.dark-mode .header {
+    background-color: #1f4043;
+}
+
+/* Dark mode filter input */
+body.dark-mode .filter-input {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #4a7f6d;
+}
+
+/* Dark mode placeholder */
+body.dark-mode .filter-input::placeholder {
+    color: #bbb;
+}
+
+/* Dark mode search icon */
+body.dark-mode .search-icon {
+    color: #bbb;
+}
+
+/* Dark mode filter select */
+body.dark-mode .filter-select {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #4a7f6d;
+}
+
+/* Dark mode emoji container */
+body.dark-mode #emojiContainer {
+    background-color: #333;
+    border-color: #4a7f6d;
+}
+
+/* Dark mode scrollbar track */
+body.dark-mode #emojiContainer::-webkit-scrollbar-track {
+    background-color: #555;
+}
+
+/* Dark mode scrollbar track for select */
+body.dark-mode .filter-select::-webkit-scrollbar-track {
+    background-color: #555;
+}
+
+/* Dark mode emoji */
+body.dark-mode .emoji {
+    background-color: #333;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .emoji:hover {
+    background-color: lightseagreen;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode emoji description */
+body.dark-mode .emoji-description {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode selected emoji */
+body.dark-mode .selected-emoji {
+    background-color: #333;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode emoji title */
+body.dark-mode .emoji-title {
+    color: #e0e0e0;
+}
+
+/* Dark mode emoji paragraph */
+body.dark-mode .emoji-paragraph {
+    color: #e0e0e0;
+}
+
+/* Dark mode footer */
+body.dark-mode .footer {
+    background-color: #1f4043;
+}
+
+/* Dark mode footer link */
+body.dark-mode .footer .link {
+    color: lightcoral;
+}
