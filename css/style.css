@@ -19,12 +19,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
 .container {
     width: 100%;
     max-width: 1200px;
@@ -50,11 +44,6 @@ body.dark-mode {
     justify-content: space-between;
     align-items: center;
     transition: background-color 0.3s ease;
-}
-
-/* Dark mode header */
-body.dark-mode .header {
-    background-color: #1f4043;
 }
 
 .header h1 {
@@ -98,13 +87,6 @@ body.dark-mode .header {
     color: #333;
 }
 
-/* Dark mode filter input */
-body.dark-mode .filter-input {
-    background-color: #333;
-    color: #e0e0e0;
-    border-color: #4a7f6d;
-}
-
 .filter-input:focus {
     border-color: lightseagreen;
     border: 3px outset lightseagreen;
@@ -114,22 +96,12 @@ body.dark-mode .filter-input {
     text-align: center;
 }
 
-/* Dark mode placeholder */
-body.dark-mode .filter-input::placeholder {
-    color: #bbb;
-}
-
 .search-icon {
     position: absolute;
     right: 10px;
     font-size: 1.2em;
     color: gray;
     padding: 5px;
-}
-
-/* Dark mode search icon */
-body.dark-mode .search-icon {
-    color: #bbb;
 }
 
 .filter-select {
@@ -144,13 +116,6 @@ body.dark-mode .search-icon {
     cursor: pointer;
     text-align: center;
     padding: 10px;
-}
-
-/* Dark mode filter select */
-body.dark-mode .filter-select {
-    background-color: #333;
-    color: #e0e0e0;
-    border-color: #4a7f6d;
 }
 
 .filter-select:focus {
@@ -179,81 +144,6 @@ body.dark-mode .filter-select {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Dark mode emoji container */
-body.dark-mode #emojiContainer {
-    background-color: #333;
-    border-color: #4a7f6d;
-}
-
-/* Custom scrollbar styles for emojiContainer */
-#emojiContainer::-webkit-scrollbar {
-    width: 10px;
-}
-
-#emojiContainer::-webkit-scrollbar-track {
-    background-color: #f5f5f5;
-}
-
-/* Dark mode scrollbar track */
-body.dark-mode #emojiContainer::-webkit-scrollbar-track {
-    background-color: #555;
-}
-
-#emojiContainer::-webkit-scrollbar-thumb {
-    background-color: lightseagreen;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-#emojiContainer::-webkit-scrollbar-thumb:hover {
-    background-color: #4a7f6d;
-}
-
-/* Custom scrollbar styles for filter-select */
-.filter-select::-webkit-scrollbar {
-    width: 10px;
-}
-
-.filter-select::-webkit-scrollbar-track {
-    background-color: #f5f5f5;
-}
-
-/* Dark mode scrollbar track for select */
-body.dark-mode .filter-select::-webkit-scrollbar-track {
-    background-color: #555;
-}
-
-.filter-select::-webkit-scrollbar-thumb {
-    background-color: lightseagreen;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.filter-select::-webkit-scrollbar-thumb:hover {
-    background-color: #4a7f6d;
-}
-
-/* Custom scrollbar styles for filter-select */
-.filter-select::-webkit-scrollbar {
-    width: 10px;
-}
-
-.filter-select::-webkit-scrollbar-track {
-    background-color: #f5f5f5;
-}
-
-.filter-select::-webkit-scrollbar-thumb {
-    background-color: lightseagreen;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.filter-select::-webkit-scrollbar-thumb:hover {
-    background-color: #4a7f6d; /* Darker shade of lightseagreen for hover effect */
-}
-
-
-/* Emoji styling */
 .emoji {
     text-align: center;
     width: 50px;
@@ -268,13 +158,6 @@ body.dark-mode .filter-select::-webkit-scrollbar-track {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Dark mode emoji */
-body.dark-mode .emoji {
-    background-color: #333;
-    color: #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 .emoji.clicked {
     background-color: lightcoral !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -286,7 +169,6 @@ body.dark-mode .emoji {
     transform: translateY(-2px);
 }
 
-/* Container for the emoji description */
 .emoji-description {
     width: 26%;
     padding: 20px;
@@ -298,13 +180,6 @@ body.dark-mode .emoji {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Dark mode emoji description */
-body.dark-mode .emoji-description {
-    background-color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Selected emoji display */
 .selected-emoji {
     width: 50px;
     height: 50px;
@@ -317,14 +192,6 @@ body.dark-mode .emoji-description {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Dark mode selected emoji */
-body.dark-mode .selected-emoji {
-    background-color: #333;
-    color: #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Title styling */
 .emoji-title {
     text-transform: capitalize;
     font-size: 18px;
@@ -334,21 +201,10 @@ body.dark-mode .selected-emoji {
     transition: color 0.3s ease;
 }
 
-/* Dark mode emoji title */
-body.dark-mode .emoji-title {
-    color: #e0e0e0;
-}
-
-/* Paragraph text */
 .emoji-paragraph {
     font-size: 15px;
     color: #333;
     transition: color 0.3s ease;
-}
-
-/* Dark mode emoji paragraph */
-body.dark-mode .emoji-paragraph {
-    color: #e0e0e0;
 }
 
 .footer {
@@ -363,26 +219,15 @@ body.dark-mode .emoji-paragraph {
     transition: background-color 0.3s ease;
 }
 
-/* Dark mode footer */
-body.dark-mode .footer {
-    background-color: #1f4043;
-}
-
 .footer .link {
     color: darkred;
     text-decoration: none;
-}
-
-/* Dark mode footer link */
-body.dark-mode .footer .link {
-    color: lightcoral;
 }
 
 .footer .link:hover {
     text-decoration: underline;
 }
 
-/* Dark mode toggle switch styles */
 .switch {
     position: relative;
     display: inline-block;
@@ -424,7 +269,7 @@ body.dark-mode .footer .link {
     position: absolute;
     left: 10px;
     top: 5px;
-    font-size: 20px;
+    font-size: 3em;
     transition: opacity 0.4s ease;
 }
 
@@ -432,7 +277,7 @@ body.dark-mode .footer .link {
     position: absolute;
     right: 10px;
     top: 5px;
-    font-size: 20px;
+    font-size: 3em;
     transition: opacity 0.4s ease;
     opacity: 0;
 }
@@ -445,14 +290,6 @@ input:checked + .slider {
     background-color: lightseagreen;
 }
 
-input:checked + .slider .moon-icon {
-    opacity: 1;
-}
-
-input:checked + .slider .sun-icon {
-    opacity: 0;
-}
-
 #theme-toggle {
     background: linear-gradient(135deg, #9be4ab, #515594);
     border: none;
@@ -463,26 +300,11 @@ input:checked + .slider .sun-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 #theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 10px 24px rgba(0, 0, 0, 0.2);
-}
-
-#theme-toggle:active {
-    transform: scale(0.95);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.25);
-}
-
-#theme-icon {
-    font-size: 1.5em;
-    transition: transform 0.3s ease;
-}
-
-#theme-toggle.dark-mode #theme-icon {
-    transform: rotate(180deg);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
