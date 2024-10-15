@@ -93,7 +93,7 @@ body {
 }
 
 .filter-input::placeholder {
-    text-align: center;
+    text-align: left;
 }
 
 .search-icon {
