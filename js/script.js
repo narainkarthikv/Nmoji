@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function displayEmojis(emojis) {
         emojiContainer.innerHTML = '';
-        emojis.slice(0, 40).forEach(emoji => {
+        emojis.slice(0, 30).forEach(emoji => {
             const emojiElement = document.createElement('div');
             emojiElement.classList.add('emoji');
             emojiElement.textContent = emoji.emoji;
